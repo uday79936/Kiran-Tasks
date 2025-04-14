@@ -65,7 +65,7 @@ sudo apt install maven
 - Navigate to the cloned project directory:
 
 ```bash
-cd Calculator
+cd Train ticket reservation system 
 ```
 
 - Validate the Maven project configuration:
