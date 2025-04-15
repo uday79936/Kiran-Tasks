@@ -11,7 +11,7 @@ ssh -i "python1.pem" ubuntu@ec2-98-84-171-254.compute-1.amazonaws.com
 
 ---
 
-## 1. Create a Project Folder
+## 1. Create a Project Folder 
 
 ```bash
 mkdir app1
