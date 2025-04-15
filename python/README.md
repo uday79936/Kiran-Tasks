@@ -1,173 +1,105 @@
 
-# Deploy Python Flask App with Gunicorn on Amazon Linux
+# Deploying Flask App with Gunicorn on AWS EC2
 
-## Prerequisites
+## Connect to the EC2 Instance
 
-- Amazon Linux EC2 instance running
-- Root/sudo access
-- Python 3 and pip
-- Git installed
-- Flask app files with `requirements.txt`
-
----
-
-## 1. Switch to Root and Update the System
+Use the SSH key to connect to your server:
 
 ```bash
-sudo -i
-yum update -y
+ssh -i "python1.pem" ubuntu@ec2-98-84-171-254.compute-1.amazonaws.com
 ```
 
 ---
 
-## 2. Check and Install Python 3
-
-Check if Python 3 is installed:
+## 1. Create a Project Folder
 
 ```bash
-yum list installed | grep -i python3
-```
-
-If not installed:
-
-```bash
-sudo yum install python3 -y
+mkdir app1
+cd app1
 ```
 
 ---
 
-## 3. Install Required Packages
-
-```bash
-yum install git -y
-yum install python3-pip -y
-```
-
----
-
-## 4. Clone or Navigate to Flask App Directory
-
-```bash
-git clone <git-url>
-cd /root/example-voting-app/vote
-```
-
----
-
-## 5. Install Python Dependencies
-
-```bash
-pip3 install -r requirements.txt
-pip3 install flask
-pip3 install redis
-pip3 install gunicorn
-```
-
----
-
-## 6. Create and Activate Virtual Environment
+## 2. Create a Virtual Environment
 
 ```bash
 python3 -m venv myenv
 source myenv/bin/activate
 ```
 
-Your shell prompt should change, indicating you're in the virtual environment.
-
 ---
 
-## 7. Run Flask App (Test in Dev Mode)
+## 3. Install Flask and Gunicorn
 
 ```bash
-python3 app.py
-```
-
-Expected output:
-
-```
- * Serving Flask app 'app'
- * Debug mode: on
- * Running on http://127.0.0.1:80
- * Running on http://<PRIVATE_IP>:80
+pip install flask gunicorn
 ```
 
 ---
 
-## 8. Install and Test Gunicorn
+## 4. Create Your Flask App
+
+Create a file named `app.py`:
+
+```python
+# app.py
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return "Hello from Flask and Gunicorn!"
+```
+
+---
+
+## 5. Run Your App with Gunicorn
+
+Run this command to start your Flask app with Gunicorn:
 
 ```bash
-pip3 install gunicorn
-gunicorn app:app -b 0.0.0.0:80 --log-file - --access-logfile - --workers 4 --keep-alive 0
+gunicorn --bind=0.0.0.0:5001 app:app
+```
+
+- `app` (before the colon) is the **filename** (i.e., `app.py` without the `.py`)
+- `app` (after the colon) is the **Flask app variable** you defined
+
+> ⚠️ Make sure you're in the same directory as `app.py` when you run the command.
+
+---
+
+## 6. Access Your App in a Browser
+
+Ensure **port 5001** is open in your AWS EC2 Security Group.
+
+Then open your app in a browser:
+
+```
+http://<your-ec2-public-ip>:5001
+```
+
+Example:
+
+```
+http://ec2-98-84-171-254.compute-1.amazonaws.com:5001
 ```
 
 ---
 
-## 9. Create systemd Service for Flask App
+## 7. (Optional) Use `wsgi.py` for Better Structure
+
+Create a file named `wsgi.py`:
+
+```python
+# wsgi.py
+from app import app
+
+if __name__ == "__main__":
+    app.run()
+```
+
+Then run:
 
 ```bash
-vi /etc/systemd/system/vote.service
-```
-
-Add the following:
-
-```ini
-[Unit]
-Description=Gunicorn instance to serve Flask app
-After=network.target
-
-[Service]
-User=root
-Group=root
-WorkingDirectory=/root/example-voting-app/vote
-ExecStart=/root/example-voting-app/vote/myenv/bin/gunicorn app:app -b 0.0.0.0:80 --log-file - --access-logfile - --workers 4 --keep-alive 0
-TimeoutStopSec=90
-Restart=always
-KillMode=mixed
-
-[Install]
-WantedBy=multi-user.target
-```
-
----
-
-## 10. Start and Enable the Flask Service
-
-```bash
-systemctl daemon-reload
-systemctl start vote.service
-systemctl status vote.service
-systemctl enable vote.service
-```
-
----
-
-## 11. Access the Application
-
-Visit: `http://<EC2_PUBLIC_IP>:80`
-
----
-
-![Image](https://github.com/user-attachments/assets/3319be32-b491-4f0d-b048-0c03f7cbd431)
-
-
-## Example Command History
-
-```bash
-yum update -y
-yum install git -y
-git clone https://github.com/Ai-TechNov/example-voting-app
-cd example-voting-app/vote/
-yum install pip3 -y
-yum install python3-pip -y
-pip3 install -r requirements.txt
-python3 -m venv myenv
-source myenv/bin/activate
-pip3 install flask redis gunicorn
-python3 app.py
-gunicorn app:app -b 0.0.0.0:80 --log-file - --access-logfile - --workers 4 --keep-alive 0
-vi /etc/systemd/system/vote.service
-systemctl daemon-reload
-systemctl start vote.service
-systemctl status vote.service
-systemctl enable vote.service
-```
+gunicorn --bind=0.0.0.0:5001 wsgi:app
