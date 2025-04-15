@@ -65,7 +65,7 @@ sudo apt install maven
 - Navigate to the cloned project directory:
 
 ```bash
-cd Calculator
+cd Train ticket reservation system 
 ```
 
 - Validate the Maven project configuration:
@@ -142,7 +142,7 @@ cd apache-tomcat-9.0.102/bin
 - Copy the WAR file to the Tomcat webapps directory (adjust paths as needed):
 
 ```bash
-cp ~/Calculator/target/TrainBook-1.0.0-SNAPSHOT.war ~/apache-tomcat-9.0.102/webapps/
+cp ~/Train ticket reservation system/target/TrainBook-1.0.0-SNAPSHOT.war ~/apache-tomcat-9.0.102/webapps/
 ```
 
 > *Note: Adjust file names and paths if different in your project.*
