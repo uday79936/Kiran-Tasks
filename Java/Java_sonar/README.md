@@ -209,3 +209,12 @@ http://ec2-98-81-227-245.compute-1.amazonaws.com:8080/TrainBook-1.0.0-SNAPSHOT/
 ---
 
 📌 **Note:** This guide assumes a basic setup. For production environments, consider security hardening, firewall rules, HTTPS setup, and scalability measures.
+
+
+
+![Image](https://github.com/user-attachments/assets/cfa31da9-40c2-4e5c-bf29-0e505aded0ec)
+![Image](https://github.com/user-attachments/assets/6ce38c7b-dd01-4354-9890-2672ba34dbc2)
+![Image](https://github.com/user-attachments/assets/ec8cdb48-6e2b-4864-b289-53cd4cb1f015)
+![Image](https://github.com/user-attachments/assets/cc6efbb7-8687-4723-b30c-2ef0176bf660)
+![Image](https://github.com/user-attachments/assets/4f7b968f-6757-45af-946d-d9d1e8f2fd82)
+![Image](https://github.com/user-attachments/assets/1ce1242e-6c75-4cb0-ada8-85d1bd08aac1)
