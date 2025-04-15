@@ -147,6 +147,9 @@ Visit: `http://<EC2_PUBLIC_IP>:80`
 
 ---
 
+![Image](https://github.com/user-attachments/assets/3319be32-b491-4f0d-b048-0c03f7cbd431)
+
+
 ## Example Command History
 
 ```bash
