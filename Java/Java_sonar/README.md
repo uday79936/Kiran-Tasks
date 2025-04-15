@@ -85,10 +85,10 @@ wget  https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-6.7.7.zi
 unzip <file>
 ```
 
-- Navigate to the Tomcat bin directory:
+- Navigate to the sonar bin directory:
 
 ```bash
-cd apache-tomcat-9.0.102/bin
+cd sonarqube-9.0.102/bin
 ```
 
 - Start the sonarqube server:
