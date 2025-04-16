@@ -44,6 +44,11 @@ sudo apt install maven
 ```
 
 - Navigate to the cloned project directory:
+- 
+cd ~
+Clone the specified Git repository:
+
+4. git clone https://github.com/shashirajraja/Train-Ticket-Reservation-System.git
 
 ```bash
 cd Train ticket reservation system 
