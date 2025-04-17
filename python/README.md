@@ -104,4 +104,4 @@ Then run:
 ```bash
 gunicorn --bind=0.0.0.0:5001 wsgi:app
 
-![Image](https://github.com/user-attachments/assets/aa278b08-ac67-4c75-a237-96f63f0d5fa4)
+
