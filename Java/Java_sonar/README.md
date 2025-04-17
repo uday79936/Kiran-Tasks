@@ -34,27 +34,8 @@ sudo apt update
 
 ```bash
 sudo apt install openjdk-11-jre-headless
-```
 
----
-
-## 3. Clone the Project from Git
-
-- Navigate to the home directory (if not already there):
-
-```bash
-cd ~
-```
-
-- Clone the specified Git repository:
-
-```bash
-git clone https://github.com/shashirajraja/Train-Ticket-Reservation-System.git
-```
-
----
-
-## 4. Build the Project with Maven
+## 3. Build the Project with Maven
 
 - Install Maven:
 
@@ -63,6 +44,11 @@ sudo apt install maven
 ```
 
 - Navigate to the cloned project directory:
+- 
+cd ~
+Clone the specified Git repository:
+
+4. git clone https://github.com/shashirajraja/Train-Ticket-Reservation-System.git
 
 ```bash
 cd Train ticket reservation system 
@@ -92,31 +78,31 @@ mvn package
 
 ## 5. Install and Configure Apache Tomcat
 
-- Download Apache Tomcat 9:
+- To install sonarqube:
 
 ```bash
-wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.102/bin/apache-tomcat-9.0.102.tar.gz
+wget  https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-6.7.7.zip
 ```
 
-- Extract the downloaded tar.gz file:
+- Extract the downloaded zip file:
 
 ```bash
-tar -xvf apache-tomcat-9.0.102.tar.gz
+unzip <file>
 ```
 
-- Navigate to the Tomcat bin directory:
+- Navigate to the sonar bin directory:
 
 ```bash
-cd apache-tomcat-9.0.102/bin
+cd sonarqube-9.0.102/bin
 ```
 
-- Start the Tomcat server:
+- Start the sonarqube server:
 
 ```bash
 ./startup.sh
 ```
 
-- To stop the Tomcat server:
+- To stop the sonarqube server:
 
 ```bash
 ./shutdown.sh
@@ -136,75 +122,7 @@ cd apache-tomcat-9.0.102/bin
 ⚠️ *Warning: Allowing traffic from anywhere on all TCP ports is a security risk. For production, restrict access to specific ports and IP ranges.*
 
 ---
-
-## 7. Deploy the WAR File
-
-- Copy the WAR file to the Tomcat webapps directory (adjust paths as needed):
-
-```bash
-cp ~/Train ticket reservation system/target/TrainBook-1.0.0-SNAPSHOT.war ~/apache-tomcat-9.0.102/webapps/
-```
-
-> *Note: Adjust file names and paths if different in your project.*
-
----
-
-## 8. (Optional) Configure Tomcat Manager and Host Manager
-
-- Navigate to the manager web application:
-
-```bash
-cd ~/apache-tomcat-9.0.102/webapps/manager/
-```
-
-> *Comment out the `<Valve>` element in `META-INF/context.xml` if needed for access.*
-
-- Navigate to the host-manager web application:
-
-```bash
-cd ~/apache-tomcat-9.0.102/webapps/host-manager/
-```
-
-> *Similarly, edit `META-INF/context.xml` and comment out the `<Valve>` tag.*
-
----
-
-## 9. (Optional) Configure Tomcat Users
-
-- Navigate to the Tomcat `conf` directory:
-
-```bash
-cd ~/apache-tomcat-9.0.102/conf/
-```
-
-- Edit `tomcat-users.xml` to add admin access:
-
-```xml
-<tomcat-users>
-  <role rolename="manager-gui"/>
-  <role rolename="admin-gui"/>
-  <user username="admin" password="your_password" roles="manager-gui,admin-gui"/>
-</tomcat-users>
-```
-
----
-
-## 10. Verify Deployment
-
-- Restart the Tomcat server:
-
-```bash
-~/apache-tomcat-9.0.102/bin/shutdown.sh
-~/apache-tomcat-9.0.102/bin/startup.sh
-```
-
-- Open your web browser and access your application:
-
-```
-http://ec2-98-81-227-245.compute-1.amazonaws.com:8080/TrainBook-1.0.0-SNAPSHOT/
-```
-
-> *Assuming Tomcat is running on the default port `8080`, and the WAR file is named `TrainBook-1.0.0-SNAPSHOT.war`.*
+Hence we finally test the java code
 
 ---
 
