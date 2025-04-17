@@ -146,5 +146,6 @@ Add the following inside the `<servers>` block:
 ```bash
 mvn clean deploy -x
 ```
+![Image](https://github.com/user-attachments/assets/e15dd2eb-07a2-4ff1-96d5-02d3855a2b23)
 
 > Maven will build the artifact and deploy it to the Nexus releases repository.
