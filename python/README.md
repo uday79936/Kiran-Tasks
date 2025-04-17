@@ -103,6 +103,9 @@ Then run:
 
 ```bash
 gunicorn --bind=0.0.0.0:5001 wsgi:app
+```
+```bash
 
 ![Image](https://github.com/user-attachments/assets/5107a0d3-3731-49b1-a3b3-7290b454ab4c)
+```
 ```
