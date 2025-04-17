@@ -147,4 +147,4 @@ Add the following inside the `<servers>` block:
 mvn clean deploy -x
 ```
 
-> Maven will build the artifact and deploy it to the Nexus releases repository.
+> Maven will build the artifact and deploy it to the Nexus releases repository..
