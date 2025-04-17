@@ -126,4 +126,6 @@ Hence we finally test the java code
 
 ---
 
+![Image](https://github.com/user-attachments/assets/c0d642ce-69f0-4d57-bdec-6395636cc171)
+
 📌 **Note:** This guide assumes a basic setup. For production environments, consider security hardening, firewall rules, HTTPS setup, and scalability measures.
