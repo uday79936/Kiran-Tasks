@@ -104,9 +104,7 @@ Then run:
 ```bash
 gunicorn --bind=0.0.0.0:5001 wsgi:app
 
-
-
-##Deploy output
+## 8. Deploy output:
 
 
 
