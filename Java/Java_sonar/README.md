@@ -76,7 +76,7 @@ mvn package
 
 ---
 
-## 5. Install and Configure Apache Tomcat
+## 5. Install and Configure sonarqube
 
 - To install sonarqube:
 
