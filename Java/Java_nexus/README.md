@@ -144,7 +144,7 @@ Add the following inside the `<servers>` block:
 ### Clean and Deploy the Project
 
 ```bash
-mvn clean deploy -x
+mvn clean deploy -X
 ```
 ![Image](https://github.com/user-attachments/assets/e15dd2eb-07a2-4ff1-96d5-02d3855a2b23)
 
