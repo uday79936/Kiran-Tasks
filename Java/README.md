@@ -142,7 +142,7 @@ cd apache-tomcat-9.0.102/bin
 - Copy the WAR file to the Tomcat webapps directory (adjust paths as needed):
 
 ```bash
-cp ~/Calculator/target/TrainBook-1.0.0-SNAPSHOT.war ~/apache-tomcat-9.0.102/webapps/
+  cp -r Train-Ticket-Reservation-System/ target/*.war apache-tomcat-9.0.104/webapps/
 ```
 
 > *Note: Adjust file names and paths if different in your project.*
