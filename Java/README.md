@@ -207,6 +207,7 @@ http://ec2-98-81-227-245.compute-1.amazonaws.com:8080/TrainBook-1.0.0-SNAPSHOT/
 > *Assuming Tomcat is running on the default port `8080`, and the WAR file is named `TrainBook-1.0.0-SNAPSHOT.war`.*
 
 ---
+![Image](https://github.com/user-attachments/assets/5a8303a2-0a68-4bed-89a8-9b6a8c42ebc8)
 
 📌 **Note:** This guide assumes a basic setup. For production environments, consider security hardening, firewall rules, HTTPS setup, and scalability measures.
 
